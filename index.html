@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Renewable Energy Consumption Visualization(1993~2018)</title>
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1 class="main-title">Global Renewable Energy Development</h1>
+      <p class="subtitle">
+        Interactive Narrative Visualization - Exploring Renewable Energy
+        Trends (1993-2018)
+      </p>
+    </div>
+
+    <div class="navigation">
+      <button class="nav-btn active" onclick="showScene(1)">
+        Scene 1: Global Overview
+      </button>
+      <button class="nav-btn" onclick="showScene(2)">
+        Scene 2: Developed Countries
+      </button>
+      <button class="nav-btn" onclick="showScene(3)">
+        Scene 3: Developing Countries
+      </button>
+    </div>
+
+    <!-- Scene 1: Global Overview -->
+    <div id="scene1" class="scene-container">
+      <div class="scene-header">
+        <h2 class="scene-title">
+          Global Renewable Energy Development Overview
+        </h2>
+      </div>
+      <div class="scene-content">
+        <div class="scene-description">
+          <h3>
+            Exploring the Relationship Between Global Renewable Energy and
+            Economic Development (1993~2018)
+          </h3>
+          <p>
+            This scatter plot illustrates the relationship between GDP per
+            capita and the share of renewable energy in various countries across the years. By
+            using the time slider, you can observe the trends from 1993 to
+            2018. Mouse over the data points to see more details.
+          </p>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label for="yearSlider1">Year:</label>
+            <input type="range" id="yearSlider1" class="year-slider" min="1993" max="2018" value="2010" step="1" />
+            <span id="yearDisplay1" class="year-display">2010</span>
+          </div>
+        </div>
+
+        <div id="chart1"></div>
+
+        <div class="legend" id="legend1"></div>
+      </div>
+    </div>
+
+    <!-- Scene 2: Developed Countries -->
+    <div id="scene2" class="scene-container hidden">
+      <div class="scene-header">
+        <h2 class="scene-title">
+          Developed Countries Renewable Energy Development Trends
+        </h2>
+      </div>
+      <div class="scene-content">
+        <div class="scene-description">
+          <h3>The Green Transition Path of Developed Countries</h3>
+          <p>
+            Select different developed countries to explore their
+            changes and trends in renewable energy development. These countries are generally
+            higher in GDP and smaller in population. They have taken
+            the lead in the green energy transition and have a relatively higher renewable energy usage.
+          </p>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label>Select Country:</label>
+            <button class="country-btn" data-country="United States" data-scene="2">
+              United States
+            </button>
+            <button class="country-btn" data-country="Japan" data-scene="2">
+              Japan
+            </button>
+            <button class="country-btn" data-country="Germany" data-scene="2">
+              Germany
+            </button>
+            <button class="country-btn" data-country="Austria" data-scene="2">
+              Austria
+            </button>
+            <button class="country-btn" data-country="Canada" data-scene="2">
+              Canada
+            </button>
+          </div>
+        </div>
+
+        <div id="chart2"></div>
+      </div>
+    </div>
+
+    <!-- Scene 3: Developing Countries -->
+    <div id="scene3" class="scene-container hidden">
+      <div class="scene-header developing">
+        <h2 class="scene-title">
+          Developing Countries Renewable Energy Development Trends
+        </h2>
+      </div>
+      <div class="scene-content">
+        <div class="scene-description">
+          <h3>The Green Catch-Up of Developing Countries</h3>
+          <p>
+            Despite starting from a lower base, developing countries are
+            showing strong growth power in renewable energy. These
+            countries are typically larger in population and lower in GDP.
+            Select different developing countries to explore their
+            changes and trends in renewable energy development.
+          </p>
+        </div>
+
+        <div class="controls developing">
+          <div class="control-group">
+            <label>Select Country:</label>
+            <button class="country-btn" data-country="India" data-scene="3">
+              India
+            </button>
+            <button class="country-btn" data-country="Bangladesh" data-scene="3">
+              Bangladesh
+            </button>
+            <button class="country-btn" data-country="South Africa" data-scene="3">
+              South Africa
+            </button>
+            <button class="country-btn" data-country="Indonesia" data-scene="3">
+              Indonesia
+            </button>
+          </div>
+        </div>
+
+        <div id="chart3"></div>
+      </div>
+    </div>
+
+    <div class="tooltip"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+  <script>
+    // Work on the dataset
+    var useRandomData = false;
+
+    var scene2VerticalLineYears = [1997, 2008, 2016];
+    var scene2VerticalLineTexts = ["The Kyoto Protocol", "The Global Financial Crisis", "The Paris Agreement"];
+
+    var scene3VerticalLineYears = [2008, 2009, 2016];
+    var scene3VerticalLineTexts = ["The Global Financial Crisis", "The First BRICS Summit","The Paris Agreement"];
+
+    var scene2Annotations = [
+      {
+      },
+      {
+      }
+    ];
+
+    var scene3Annotations = [
+      {
+
+      },
+      {
+
+      }
+    ];
+  </script>
+  <script src="./output/index.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
